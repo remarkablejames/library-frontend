@@ -6,13 +6,15 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const registerUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/test", {
+      const response = await axios.post("/api/v1/users/signup", {
         name,
         email,
         password,
+        passwordConfirm,
       });
       console.log(response);
     } catch (error) {
@@ -53,8 +55,8 @@ const Register = () => {
                     id="name"
                     type="text"
                     placeholder="John Doe"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
 
@@ -103,8 +105,8 @@ const Register = () => {
                     id="passwordConfirm"
                     type="password"
                     placeholder="Confirm password..."
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={passwordConfirm}
+                    onChange={(e) => setPasswordConfirm(e.target.value)}
                   />
                 </div>
                 <div className="mb-6 text-center">
@@ -130,7 +132,7 @@ const Register = () => {
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                     href="./index.html"
                   >
-                    <Link to="/login">Got an account? Login</Link>
+                    <Link to="/">Got an account? Login</Link>
                   </a>
                 </div>
               </form>

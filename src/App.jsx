@@ -6,16 +6,16 @@ import Layout from "./components/Layout";
 import Register from "./pages/Register";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "http://localhost:3000";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Index />} />
-      </Route>
-      <Route path="/login" element={<Login />} />
+      <Route index element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Layout />}>
+        <Route path="dashboard" element={<Index />} />
+      </Route>
     </Routes>
   );
 }

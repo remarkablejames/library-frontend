@@ -1,7 +1,12 @@
 import React from "react";
 
 const Index = () => {
-  return <div>Index page goes here</div>;
+  return (
+    <div>
+      This project is currently down for update reasons. check back on Sunday
+      30th April
+    </div>
+  );
 };
 
 export default Index;
